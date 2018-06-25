@@ -1,0 +1,12 @@
+@import '../helpers/placeholders';
+@import '../helpers/variables';
+@import '../helpers/mixins/clearfix';
+@import '../helpers/mixins/list-reset';
+@import '../helpers/mixins/responsive';
+
+.nav__menu {
+    @include list-reset();
+    @extend %flex;
+    justify-content: space-between;
+    max-width: 600px;
+}
