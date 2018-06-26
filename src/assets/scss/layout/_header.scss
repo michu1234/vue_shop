@@ -4,9 +4,15 @@
 @import '../helpers/mixins/list-reset';
 @import '../helpers/mixins/responsive';
 
+header {
+    padding-bottom: 20px;
+    width: 100%;
+}
+
 .nav__menu {
     @include list-reset();
     @extend %flex;
     justify-content: space-between;
     max-width: 600px;
+    margin-left: auto;
 }

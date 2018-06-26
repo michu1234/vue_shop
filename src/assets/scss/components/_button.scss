@@ -1,0 +1,31 @@
+@import './helpers/placeholders';
+@import './helpers/variables';
+@import './helpers/mixins/clearfix';
+@import './helpers/mixins/list-reset';
+@import './helpers/mixins/responsive';
+
+
+
+.btn {
+    border-radius: 3px;
+    background: $deep-turquoise;
+    border: none;
+    min-height: 20px;
+    color: $pure-white;
+
+    &__medium {
+        max-width: 120px;
+        width: 100%;
+    }
+
+    &__small {
+        max-width: 20px;
+        width: 100%;
+    }
+
+    &:hover {
+        background: lighten($deep-turquoise, 3%);
+        cursor: pointer;
+        @extend %transition;
+    }
+}

@@ -1,0 +1,47 @@
+@import '../helpers/placeholders';
+@import '../helpers/variables';
+@import '../helpers/mixins/clearfix';
+@import '../helpers/mixins/list-reset';
+@import '../helpers/mixins/responsive';
+
+
+table {
+    margin: 40px 0 40px 0;
+}
+
+table, th, td {
+
+    img {
+        max-width: 200px;
+        width: 100%;
+    }
+}
+
+td {
+
+    &:not(:first-child) {
+        padding: 0 20px 0 20px;
+    }
+    
+    &:nth-child(3) {
+        min-width: 100px;
+        @extend %flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 160px;
+    }
+
+    &:last-child {
+        p {
+            text-align: right
+        }
+    }
+}
+
+.button__wrapper {
+    height: 45px;
+    margin-left: 10px;
+    @extend %flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

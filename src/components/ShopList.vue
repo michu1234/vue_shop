@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="list">
     <h2>Shop List:</h2>
     <ul>
       <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, reprehenderit aperiam dolores velit dignissimos amet, aliquid beatae minima maxime nulla quasi voluptates rem illo illum adipisci laboriosam dolore perspiciatis debitis.</li>

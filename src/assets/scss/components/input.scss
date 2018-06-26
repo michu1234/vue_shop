@@ -1,0 +1,12 @@
+input[type=text] {
+    border-radius: 2px;
+    border: 1px solid $almost-white;
+    min-height: 30px;
+    color: $gray-navy;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.input--short {
+    max-width: 30px;
+}
