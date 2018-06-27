@@ -12,6 +12,7 @@ Lorem<template>
           <li><router-link to="/">Lorem</router-link></li>
           <li class="text--bold"><router-link to="/shop">SHOP</router-link></li>
         </ul>
+        <p class="nav__mobilemenu">☰</p>
       </nav>
     </header>
     <main>
@@ -26,6 +27,11 @@ Lorem<template>
 import {mapMutations} from 'vuex';
 
 export default {
+  data() {
+    return {
+      mobileViewport: false
+    }
+  },
   methods: {
     ...mapMutations([
       'loadDataFromLocalStorage'
