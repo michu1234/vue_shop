@@ -19,10 +19,11 @@
     grid-template-columns: repeat(1, auto);
     grid-gap: 10px;
     grid-auto-flow: row;
-    border: 1px solid $almost-white;
+
 
     @include media-query(mobile_plus){
         grid-template-columns: repeat(2, auto);
+        border: 1px solid $almost-white;
     }
 
     @include media-query(tablet){
