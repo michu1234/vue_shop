@@ -35,3 +35,11 @@ a {
         @extend %transition;
     }
 }
+
+.app__copyright {
+    @extend %absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $light-navy;
+}

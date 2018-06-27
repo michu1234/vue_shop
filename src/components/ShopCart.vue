@@ -2,6 +2,7 @@
     <div class="cart">
         <h2>Koszyk</h2>
         <button class="btn btn__medium" @click="showCart =! showCart"><span v-if="showCart">Ukryj koszyk</span><span v-else>Rozwiń koszyk</span></button>
+        <div v-if="purchases != 0">
         <transition name="fade">
         <table v-if="showCart" class="cart__table">
             <thead>
@@ -10,52 +11,52 @@
                     <td>Ilość</td>
                 </tr>
             </thead>
-            <tr v-for="(product, index) in products" :key="index">
+            <tr v-for="(purchase, index) in purchases" :key="index">
                 <td>
-                    <img :src="product.image" alt="Product image">
+                    <img :src="purchase.image" alt="purchase image">
                 </td>
                 <td>
-                    <p>{{product.name}}</p>
+                    <p>{{purchase.name}}</p>
                 </td>
                 <td>
-                    <input class="input--short" type="text" v-model="product.quantity">
+                    <input class="input--short" type="text" v-model="purchase.quantity">
                     <div class="button__wrapper">
                         <button @click="controlQuantity(index,'add')" class="btn btn__small">+</button>
                         <button @click="controlQuantity(index,'reduce')" class="btn btn__small">-</button>
                     </div>
                 </td>
                 <td>
-                    <p>{{product.price * product.quantity | priceCurrency}}</p>
+                    <p>{{purchase.price * purchase.quantity | priceCurrency("zł")}}</p>
                 </td>
             </tr>
             <tr>
                 <td colspan="3"></td>
                 <td>
-                    <p>Suma: {{totalPrice}}</p>
+                    <p class="text--bold">Suma: {{totalPrice}}</p>
                 </td>
             </tr>
         </table>
         </transition>
+        </div>
+        <div class="cart__empty" v-if="showCart&&purchases">Koszyk jest pusty.</div>
     </div>
 </template>
 
 <script>
-    import {
-        mapState,
-        mapGetters,
-        mapMutations
-    } from 'vuex';
+    import {mapState, mapGetters, mapMutations} from 'vuex';
+    import mixin from '../mixins';
 
     export default {
+        mixins: [mixin],
         data() {
             return {
-                showCart: true
+                showCart: false
             }
         },
         computed: {
             ...mapState([
                 // map this.count to store.state.count
-                'products'
+                'purchases'
             ]),
             ...mapGetters([
                 'totalPrice'
@@ -72,13 +73,8 @@
                 })
             }
         },
-        filters: {
-            priceCurrency(d) {
-                return `${d} zł`
-            }
-        },
-        updated() {
-            console.log(this.quantity);
+        mounted() {
+            console.log(this.purchases);
         }
     }
 </script>

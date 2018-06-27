@@ -52,13 +52,14 @@ export default new Vuex.Store({
         price: 99,
         quantity: 1,
         image: "https://thumb.ibb.co/muEGAT/Wooden_Chair.jpg"
-      },
-    ]
+      }
+    ],
+    purchases: []
   },
   getters: {
     totalPrice(state) {
       return state.products.reduce(function (sum, product) {
-        return sum + product.price;
+        return sum + product.price * product.quantity;
       }, 0);
     }
   },

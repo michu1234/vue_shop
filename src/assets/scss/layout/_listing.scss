@@ -1,0 +1,36 @@
+@import '../helpers/placeholders';
+@import '../helpers/variables';
+@import '../helpers/mixins/clearfix';
+@import '../helpers/mixins/list-reset';
+@import '../helpers/mixins/responsive';
+
+.listing {
+    margin-top: 40px;
+}
+
+.listing__products {
+    text-align: center;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    grid-gap: 10px;
+    grid-auto-flow: row;
+    border: 1px solid $almost-white;
+
+    @include media-query(mobile_plus){
+        grid-template-columns: repeat(2, auto);
+    }
+
+    @include media-query(tablet){
+        grid-template-columns: repeat(3, auto);
+    }
+
+    @include media-query(desktop){
+        grid-template-columns: repeat(4, auto);
+    }
+}
+
+.listing__product {
+    padding: 5px;
+    border: 1px solid $almost-white;
+}

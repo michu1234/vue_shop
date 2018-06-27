@@ -5,7 +5,7 @@
 @import '../helpers/mixins/responsive';
 
 header {
-    padding-bottom: 20px;
+    padding-bottom: 60px;
     width: 100%;
 }
 
@@ -13,6 +13,26 @@ header {
     @include list-reset();
     @extend %flex;
     justify-content: space-between;
-    max-width: 600px;
+    max-width: 100%;
     margin-left: auto;
+
+    li {
+        max-width: 60px;
+        width: 100%;
+    }
+
+    li:first-child {
+        margin-right: auto;
+        font-size: 1.4rem;
+
+        a:hover {
+            text-decoration: none;
+        }
+    }
+
+    li:last-child {
+        a {
+            color: $sunny-yellow;
+    }
+  }
 }

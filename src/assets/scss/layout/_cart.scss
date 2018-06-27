@@ -28,7 +28,7 @@ td {
         @extend %flex;
         justify-content: center;
         align-items: center;
-        min-height: 160px;
+        min-height: 190px;
     }
 
     &:last-child {
@@ -39,9 +39,13 @@ td {
 }
 
 .button__wrapper {
-    height: 45px;
+    height: 44px;
     margin-left: 10px;
     @extend %flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.cart__empty {
+    padding: 10px;
 }

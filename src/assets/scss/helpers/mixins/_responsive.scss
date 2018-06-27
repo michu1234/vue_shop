@@ -1,9 +1,10 @@
 $breakpoints: (
-	"mobile"		"screen and (max-width: 767px)",
-	"tablet"		"screen and (min-width: 768px) and (max-width: 1100px)",
-	"tablet_plus"	"screen and (min-width: 768px)",
-	"tablet_minus"	"screen and (max-width: 1400px)",
-	"desk"			"screen and (min-width: 1401px)"
+	"mobile"		"screen and (max-width: 576px)",
+	"mobile_plus"	"screen and (min-width: 577px)",
+	"tablet"		"screen and (min-width: 768px)",
+	"tablet_plus"	 "screen and (min-width: 992px)",
+	"desktop"	    "screen and (min-width: 1200px)",
+	"screen"     	"screen and (min-width: 1400px)"
 ) !default;
 
 @mixin media-query($mq) {

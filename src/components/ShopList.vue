@@ -1,20 +1,33 @@
 <template>
-  <div class="list">
-    <h2>Shop List:</h2>
-    <ul>
-      <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, reprehenderit aperiam dolores velit dignissimos amet, aliquid beatae minima maxime nulla quasi voluptates rem illo illum adipisci laboriosam dolore perspiciatis debitis.</li>
-      <li>Nulla fugiat iste esse, repellendus provident praesentium tempora velit. Nostrum libero labore voluptatem voluptates quidem ratione ad porro. Beatae optio nisi nesciunt, ab vitae sit cumque explicabo ratione maxime dicta?</li>
-      <li>Suscipit nesciunt rerum alias, blanditiis totam autem harum molestias nihil at repellat eos obcaecati provident voluptates minus optio molestiae, corporis voluptatum eum facilis quo! Iusto ullam praesentium quis autem. Accusantium.</li>
-      <li>Eum labore repellendus sunt, architecto obcaecati explicabo ipsa. Nam iusto ea, consequatur similique id facilis ab dolore? Tempore laboriosam a ea explicabo autem facilis, eveniet eos est velit veniam dignissimos.</li>
-    </ul>
+  <div class="listing">
+    <h2>Produkty:</h2>
+    <section class="listing__products">
+      <div v-for="(product, index) in products" :key="index" class="listing__product">
+        <img :src="product.image" alt="">
+        <p class="text--bold">{{product.name}}</p>
+        <p>{{product.price | priceCurrency("PLN")}}</p>
+        <button @click="addToCart" class="btn">Dodaj do koszyka</button>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
+import mixin from '../mixins';
+
 export default {
   name: 'shoplist',
-  props: {
-    msg: String
+  mixins: [mixin],
+  computed: {
+    ...mapState([
+      'products'
+    ])
+  },
+  methods: {
+    addToCart() {
+      console.log("add");
+    }
   }
 }
 </script>
