@@ -76,7 +76,6 @@ export default new Vuex.Store({
   mutations: {
     changeQuantity(state, payload) {
       let order = parseInt(state.products[payload.index].quantity);
-      console.log(payload.index);
       if (payload.action === "add") {
         state.products[payload.index].quantity = order + 1;
       } else {

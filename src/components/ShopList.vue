@@ -1,11 +1,11 @@
 <template>
   <div class="listing">
     <div class="listing__wrapper">
-    <h2>Produkty</h2>
-    <select v-model="sortType" class="select--medium" name="" id="">
-      <option value="Nazwa">Nazwa ▲</option>
-      <option value="Cena">Cena ▲</option>
-    </select>
+      <h2>Produkty</h2>
+      <select v-model="sortType" class="select--medium" name="" id="">
+        <option value="Nazwa">Nazwa ▲</option>
+        <option value="Cena">Cena ▲</option>
+      </select>
     </div>
     <section class="listing__products">
       <div v-for="(product, index) in products" :key="index" class="listing__product">
@@ -19,10 +19,7 @@
 </template>
 
 <script>
-  import {
-    mapState,
-    mapMutations
-  } from 'vuex';
+  import {mapState,mapMutations} from 'vuex';
   import mixin from '../mixins';
 
   export default {
@@ -35,11 +32,11 @@
     },
     watch: {
       sortType() {
-        if(this.sortType === "Cena") {
+        if (this.sortType === "Cena") {
           this.$store.commit("sortingProducts", "Cena");
           console.log("dziala");
         }
-        if(this.sortType === "Nazwa") {
+        if (this.sortType === "Nazwa") {
           this.$store.commit("sortingProducts", "Nazwa");
         }
       }
