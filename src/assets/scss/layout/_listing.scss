@@ -6,6 +6,10 @@
 
 .listing {
     margin-top: 40px;
+
+    h2 {
+        padding-right: 30px;
+    }
 }
 
 .listing__products {
@@ -33,4 +37,9 @@
 .listing__product {
     padding: 5px;
     border: 1px solid $almost-white;
+}
+
+.listing__wrapper {
+    @extend %flex;
+    padding-bottom: 30px;
 }

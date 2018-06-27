@@ -19,9 +19,24 @@ Lorem<template>
       <router-view/>
       </transition>
     </main>
-        <p class="app__copyright">©2018 Michu1234</p>
   </div>
 </template>
+
+<script>
+import {mapMutations} from 'vuex';
+
+export default {
+  methods: {
+    ...mapMutations([
+      'loadDataFromLocalStorage'
+    ])
+  },
+  created() {
+    this.$store.commit("loadDataFromLocalStorage");
+  }
+}
+</script>
+
 
 <style lang="scss" src="./assets/scss/main.scss">
 

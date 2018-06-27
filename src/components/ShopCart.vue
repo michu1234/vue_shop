@@ -4,7 +4,7 @@
         <button class="btn btn__medium" @click="showCart =! showCart"><span v-if="showCart">Ukryj koszyk</span><span v-else>Rozwiń koszyk</span></button>
         <div v-if="purchases != 0">
         <transition name="fade">
-        <table v-if="showCart" class="cart__table">
+        <table v-if="purchases" class="cart__table">
             <thead>
                 <tr>
                     <td colspan="2"></td>
@@ -13,7 +13,7 @@
             </thead>
             <tr v-for="(purchase, index) in purchases" :key="index">
                 <td>
-                    <img :src="purchase.image" alt="purchase image">
+                    <img :src="purchase.image" alt="product image">
                 </td>
                 <td>
                     <p>{{purchase.name}}</p>
@@ -55,26 +55,24 @@
         },
         computed: {
             ...mapState([
-                // map this.count to store.state.count
-                'purchases'
+                'products'
             ]),
             ...mapGetters([
-                'totalPrice'
+                'totalPrice',
+                'purchases'
             ])
         },
         methods: {
             ...mapMutations([
-                'increaseOrder'
+                'saveToLocalStorage'
             ]),
             controlQuantity(index, action) {
                 this.$store.commit('changeQuantity', {
                     index: index,
                     action: action
-                })
+                });
+                this.$store.commit('saveToLocalStorage');
             }
-        },
-        mounted() {
-            console.log(this.purchases);
         }
     }
 </script>

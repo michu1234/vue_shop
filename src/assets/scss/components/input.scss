@@ -1,4 +1,4 @@
-input[type=text] {
+input[type=text], select {
     border-radius: 2px;
     border: 1px solid $almost-white;
     min-height: 30px;
@@ -9,4 +9,9 @@ input[type=text] {
 
 .input--short {
     max-width: 30px;
+}
+
+.select--medium {
+    max-width: 200px;
+    width: 100%;
 }
